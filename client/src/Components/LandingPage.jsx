@@ -148,7 +148,7 @@ const LandingPage = () => {
               Effortless collaboration
             </h1>
             <h2 className="text-xl my-3">
-              Evernote makes it easy to collaborate on projects. Real-Time
+              Task Manager makes it easy to collaborate on projects. Real-Time
               Editing immediately syncs changes to keep all contributors up to
               date. The Tasks feature helps you outline the next steps and
               assign responsibilities. And with unlimited sharing permissions,
