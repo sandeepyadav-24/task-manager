@@ -133,7 +133,12 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="w-5/6 ">
-        <h1 className="text-4xl text-bold m-20">Focus prioritize Execute</h1>
+        <h1 className="text-7xl text-center text-bold m-20">
+          Focus prioritize Execute
+        </h1>
+        <h1 className="text-red-600 text-center font-semibold text-xl">
+          DashBoard
+        </h1>
       </div>
       {isModalOpen && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
