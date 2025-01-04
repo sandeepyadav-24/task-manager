@@ -121,7 +121,7 @@ This will start the application on http://localhost:5173.
     
 ## Screenshots
 **Landing Page**
-<img width="1435" alt="Screenshot 2025-01-04 at 4 53 54 PM" src="https://github.com/user-attachments/assets/4e79c575-d70b-40c4-a90e-adee11d0f418" />
+<img width="1433" alt="Screenshot 2025-01-04 at 5 44 51 PM" src="https://github.com/user-attachments/assets/22a3b295-3b83-41f2-9852-12e2790b966c" />
 
 **DashBoard** 
 <img width="1435" alt="Screenshot 2025-01-04 at 4 55 08 PM" src="https://github.com/user-attachments/assets/1c86a996-35bb-47d0-b0c7-8c715abde1c7" />
