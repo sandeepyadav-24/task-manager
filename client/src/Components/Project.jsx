@@ -50,7 +50,7 @@ const Project = () => {
 
       const result = await response.json();
       if (response.ok) {
-        alert("Task created successfully!");
+        toast.success("Task created successfully!");
         setTaskIsModalOpen(false); // Close the modal
         setTaskFormData({
           headline: "",
@@ -62,6 +62,7 @@ const Project = () => {
           ...prevTasks,
           todo: [...prevTasks.todo, result], // Assuming result is the new task*
         }));
+        window.location.reload();
       } else {
         toast.error(result.message || "Failed to create task");
       }
@@ -144,6 +145,7 @@ const Project = () => {
 
           return updatedTasks;
         });
+        window.location.reload();
       } else {
         toast.error(updatedTask.message || "Failed to update task status");
       }
@@ -181,6 +183,7 @@ const Project = () => {
       } else {
         toast.error(result.message || "Failed to save details");
       }
+      window.location.reload();
     } catch (error) {
       toast.error("An error occurred while saving details.");
     }
