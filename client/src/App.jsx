@@ -8,17 +8,21 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import PageRender from "./Components/PageRender";
 import Project from "./Components/Project";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<PageRender />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/project/:projectId" element={<Project />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Toaster position="top-center"></Toaster>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PageRender />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/project/:projectId" element={<Project />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

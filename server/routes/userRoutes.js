@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 
 // SIGN UP ROUTE
 router.post("/signup", async (req, res) => {
+  console.log("Reached Here");
   try {
     const { name, email, password } = req.body;
     const existingUser = await User.findOne({ email });
@@ -40,7 +41,7 @@ router.post("/login", async (req, res) => {
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid Credentials" });
     }
-    console.log(user._id);
+
     const token = jwt.sign({ _id: user._id }, SECRET);
     return res.status(201).json({ message: "login successful", token });
   } catch (error) {

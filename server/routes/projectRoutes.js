@@ -7,8 +7,7 @@ const mongoose = require("mongoose");
 // Create Project
 router.post("/create", authenticateJwt, async (req, res) => {
   try {
-    console.log("Reached on Create New Project ");
-    console.log(req.user.userId);
+    
     const userId = req.user.userId;
     const { name, priority, tags } = req.body;
     const newProject = new Project({ userId, name, priority, tags });
@@ -22,7 +21,7 @@ router.post("/create", authenticateJwt, async (req, res) => {
 router.get("/user/:projectId", authenticateJwt, async (req, res) => {
   try {
     const { projectId } = req.params;
-    console.log("projectId from request:", projectId);
+
     // Validate and convert userId to ObjectId
     if (!mongoose.Types.ObjectId.isValid(projectId)) {
       return res.status(400).json({ error: "Invalid userId format" });
@@ -42,8 +41,7 @@ router.get("/user/:projectId", authenticateJwt, async (req, res) => {
       _id: projectId,
     });
 
-    console.log(projects);
-    console.log("After Printing project in backend ");
+   
     //if (!projects.length) {
     // return res.status(404).json({ error: "No projects found for this user" });
     //}

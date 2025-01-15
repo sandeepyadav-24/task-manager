@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -63,17 +64,17 @@ const Dashboard = () => {
         body: JSON.stringify(formData),
       });
       const result = await response.json();
-      console.log(result);
-      console.log("getting data form backend");
+
       if (response.ok) {
-        alert("Details saved successfully!");
+        toast.succes("Details saved successfully!");
+
         setIsModalOpen(false); // Close the modal
         setFormData({ name: "", priority: "", tags: "" }); // Reset form
       } else {
-        alert(result.message || "Failed to save details");
+        toast.error(result.message || "Failed to save details");
       }
     } catch (error) {
-      alert("An error occurred while saving details.");
+      toast.error("An error occurred while saving details.");
     }
   };
   return (

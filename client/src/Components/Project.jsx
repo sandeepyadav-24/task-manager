@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
+import toast from "react-hot-toast";
 const Project = () => {
   const { projectId } = useParams();
   const navigate = useNavigate();
@@ -61,10 +63,10 @@ const Project = () => {
           todo: [...prevTasks.todo, result], // Assuming result is the new task*
         }));
       } else {
-        alert(result.message || "Failed to create task");
+        toast.error(result.message || "Failed to create task");
       }
     } catch (error) {
-      alert("An error occurred while creating the task.");
+      toast.error("An error occurred while creating the task.");
     }
   };
 
@@ -115,7 +117,7 @@ const Project = () => {
       const updatedTask = await response.json();
 
       if (response.ok) {
-        alert("Task status updated successfully!");
+        toast.success("Task status updated successfully!");
 
         // Move the task to the appropriate section based on the new status*
 
@@ -143,10 +145,10 @@ const Project = () => {
           return updatedTasks;
         });
       } else {
-        alert(updatedTask.message || "Failed to update task status");
+        toast.error(updatedTask.message || "Failed to update task status");
       }
     } catch (error) {
-      alert("An error occurred while updating the task status.");
+      toast.error("An error occurred while updating the task status.");
     }
   };
 
@@ -171,16 +173,16 @@ const Project = () => {
       const result = await response.json();
 
       if (response.ok) {
-        alert("Details saved successfully!");
+        toast.success("Details saved successfully!");
 
         setIsModalOpen(false); // Close the modal*
 
         setFormData({ name: "", priority: "", tags: "" }); // Reset form*
       } else {
-        alert(result.message || "Failed to save details");
+        toast.error(result.message || "Failed to save details");
       }
     } catch (error) {
-      alert("An error occurred while saving details.");
+      toast.error("An error occurred while saving details.");
     }
   };
 
@@ -273,7 +275,7 @@ const Project = () => {
 
         setTasks(categorizedTasks);
       } catch (error) {
-        console.error("Error fetching tasks:", error);
+        toast.error("Error fetching tasks:", error);
       }
     };
 

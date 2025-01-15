@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -7,8 +8,32 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const clickHandler = () => {
-    console.log(name, email, password);
+  const clickHandler = async () => {
+    if (!name || !email || !password) {
+      toast.error("Please fill in all the fields.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/user/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.status === 201) {
+        toast.success(data.message); // User registered successfully
+        navigate("/login"); // Redirect to login page
+      } else {
+        toast.error(data.message || "An error occurred.");
+      }
+    } catch (error) {
+      toast.error("Failed to sign up. Please try again later.");
+    }
   };
   return (
     <div className="flex flex-row h-screen">

@@ -18,7 +18,6 @@ app.use("/api/user", userRoutes);
 app.use("/api/task", taskRoutes);
 app.use("/api/project", projectRoutes);
 app.use("/middle", authenticateJwt);
-console.log("In Server");
 
 app.listen(PORT, () => {
   console.log(`server is running at port ${PORT} `);
